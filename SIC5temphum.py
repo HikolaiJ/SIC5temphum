@@ -3,8 +3,10 @@ import pandas as pd
 import pytz
 from flask import Flask, jsonify, request
 
+#All comments are written by Mahya Byantara
 app = Flask(__name__)
 
+#Data tables
 all_data = {
     "timelog": [],
     "Temperature C": [],
@@ -15,10 +17,11 @@ all_data = {
 def root_route():
     df = pd.DataFrame.from_dict(all_data)
     html_table = df.to_html()
-    table_with_header = f"<h2>Temp and Humidity</h2>{html_table}"
+    table_with_header = f"<h2>Temp and Humidity</h2>{html_table}" #HTML elements
     return table_with_header, 200
 
-@app.route("/submit", methods=["GET"])
+#time log
+@app.route("/submit", methods=["GET"]) #Submit time, humidity and temperature
 def submit_query():
     timestamp = datetime.now(tz=pytz.timezone("Asia/Jakarta")).strftime("%d/%m/%Y %H:%M:%S")
     temp = float(request.args["temp"])
