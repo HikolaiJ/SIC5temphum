@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <DHT.h>
-
+//All comments are written by Mahya Byantara
 // Replace with your network credentials
 const char* ssid = "XTNET";
 const char* password = "Xst45ansr";
