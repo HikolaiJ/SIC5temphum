@@ -1,10 +1,11 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <DHT.h>
+#define soil_moisture_pin 2
 //All comments are written by Mahya Byantara
 // Replace with your network credentials
-const char* ssid = "XTNET";
-const char* password = "Xst45ansr";
+const char* ssid = "SKHOOD 5G EXT";
+const char* password = "Bismillah1378";
 
 const char* serverName = "http://192.168.4.149:5000/post"; // Replace with your machine's local IP address
 
@@ -69,7 +70,9 @@ void loop() {
   Serial.print(" C ");
   Serial.print("Humidity: ");
   Serial.print(humidity);
-  Serial.println(" % ");
+  Serial.print(" % ");
+  Serial.print("Moisture: ");
+  Serial.println(analogRead(soil_moisture_pin));
 
   // Wait for 2 seconds before the next loop
   delay(2000);
